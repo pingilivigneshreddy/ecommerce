@@ -14,7 +14,11 @@ export class UsersService {
   }
 
   findAll() {
-    return User.find();
+    return User.find({
+      relations: {
+        address: true,
+      },
+    });
   }
 
   findOne(id: number) {
