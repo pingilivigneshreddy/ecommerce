@@ -5,6 +5,7 @@ import {
   JoinColumn,
   JoinTable,
   ManyToMany,
+  OneToMany,
   PrimaryColumn,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -17,7 +18,15 @@ export class Order {
   @Column()
   userId: number;
 
-  @ManyToMany(() => Product)
-  @JoinTable()
+  @OneToMany(() => Product, (product) => product.productId)
   products: Product[];
+
+  @Column()
+  orderprice: number;
+
+  @Column()
+  orderstatus: string;
+
+  // @OneToMany(() => Address, (address) => address.userId)
+  // address: Address[];
 }

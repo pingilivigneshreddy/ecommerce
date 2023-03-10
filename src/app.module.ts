@@ -11,6 +11,8 @@ import { AddressModule } from './address/address.module';
 import { Address } from './address/entities/address.entity';
 import { OrderModule } from './order/order.module';
 import { ProductModule } from './product/product.module';
+import { Product } from './product/entities/product.entity';
+import { Order } from './order/entities/order.entity';
 
 @Module({
   imports: [
@@ -21,7 +23,7 @@ import { ProductModule } from './product/product.module';
       username: 'vignesh',
       password: 'Password@123',
       database: 'ecommerce',
-      entities: [User, Address],
+      entities: [User, Address, Product, Order],
       synchronize: true,
     }),
     UsersModule,

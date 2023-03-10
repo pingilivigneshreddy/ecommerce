@@ -13,9 +13,7 @@ export class AddressService {
     address.country = createAddressDto.country;
     address.mobile = createAddressDto.mobile;
     address.postalcode = createAddressDto.postalcode;
-    address.userId = id;
-
-    console.log(address);
+    // address.userId = id;
 
     return await address.save();
   }

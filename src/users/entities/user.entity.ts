@@ -22,13 +22,13 @@ export class User extends BaseEntity {
   @Column()
   password: string;
 
-  @Column()
-  @IsMobilePhone()
-  mobile: string;
+  // @Column()
+  // @IsMobilePhone()
+  // mobile: string;
 
-  @Column()
-  @IsEmail()
-  email: string;
+  // @Column()
+  // @IsEmail()
+  // email: string;
 
   @OneToMany(() => Address, (address) => address.userId)
   address: Address[];

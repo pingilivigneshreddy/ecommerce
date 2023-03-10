@@ -12,7 +12,6 @@ import {
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { AddressService } from './address.service';
 import { CreateAddressDto } from './dto/create-address.dto';
-import { UpdateAddressDto } from './dto/update-address.dto';
 
 @Controller('address')
 export class AddressController {
@@ -21,8 +20,6 @@ export class AddressController {
   @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() createAddressDto: CreateAddressDto, @Request() req) {
-    console.log(createAddressDto, req.user.id);
-
     return this.addressService.create(createAddressDto, req.user.id);
   }
 

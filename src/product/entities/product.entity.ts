@@ -1,8 +1,14 @@
 import { Order } from 'src/order/entities/order.entity';
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
-export class Product {
+export class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
   productId: number;
 
@@ -18,6 +24,15 @@ export class Product {
   @Column()
   brand: string;
 
-  @ManyToMany(() => Order)
-  orders: Order[];
+  @Column()
+  category: string;
+
+  @Column()
+  ratings: number;
+
+  @Column()
+  reviews: string;
+
+  @ManyToOne(() => Order, (order) => order.products)
+  ordersId: Order;
 }

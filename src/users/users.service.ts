@@ -13,8 +13,8 @@ export class UsersService {
     return user.save();
   }
 
-  findAll() {
-    return User.find({
+  async findAll() {
+    return await User.find({
       relations: {
         address: true,
       },
